@@ -37,7 +37,7 @@ const Navbar = () => {
                                     <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} aria-current="page" to="/">Chatbot</Link>
                                 </li>
                             </ul>
-                            <Link className='btn btn-outline-primary mx-2' to="/login" role="button" onClick={handleLogout}>Logout</Link>
+                            <Link className='btn btn-success mx-2' to="/login" role="button" onClick={handleLogout}>Logout</Link>
                         </div>
                     </div>
                 </nav>}
