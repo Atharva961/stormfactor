@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-
+import Lands from './Lands';
+import './Home.css'
 
 function Home() {
     let navigate = useNavigate();
@@ -30,13 +31,12 @@ function Home() {
         }
     });
     return (
-        <div>
-            {
-                details &&
-                <p>{details.name}</p>
-            
-            }
-        </div >
+        <div className="container">
+            <h2 className='my-4'>{details.name}</h2>
+
+            <Lands />
+        </div>
+
     )
 }
 
