@@ -62,7 +62,7 @@ const WeatherModal = ({ weatherData }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <h5 className="text-center">Temperature</h5>
+                                <h5 className="text-center">Temperature<i class="fa-solid fa-temperature-three-quarters"></i></h5>
                                 <div className="d-flex justify-content-center">
                                     <LineChart width={500} height={300} data={tempData}>
                                         <XAxis dataKey="name" />
@@ -88,7 +88,7 @@ const WeatherModal = ({ weatherData }) => {
                             </div>
 
                             <div className="col-md-6">
-                                <h5 className="text-center">Cloud cover</h5>
+                                <h5 className="text-center">Cloud cover<i class="fa-solid fa-cloud"></i></h5>
                                 <div className="d-flex justify-content-center">
                                     <LineChart width={500} height={300} data={cloudChartData}>
                                         <XAxis dataKey="name" />
@@ -101,7 +101,7 @@ const WeatherModal = ({ weatherData }) => {
                             </div>
 
                             <div className="col-md-6">
-                                <h5 className="text-center">Wind Speed</h5>
+                                <h5 className="text-center">Wind Speed<i class="fa-solid fa-wind"></i></h5>
                                 <div className="d-flex justify-content-center">
                                     <LineChart width={500} height={300} data={windSpeedChartData}>
                                         <XAxis dataKey="name" />
