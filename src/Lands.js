@@ -1,13 +1,21 @@
-import React, { useEffect, useState, useRef, Fragment } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './Land.css'
 import AddLandModal from './AddLandModal';
 import EditLandModal from './EditLandModal';
+import WeatherModal from './WeatherModal';
+
+// https://api.openweathermap.org/data/2.5/forecast?q=pune&appid=e1ad429ecb5a6a237491211d9c781e3f
+// https://api.openweathermap.org/data/2.5/weather?q=pune&appid=e1ad429ecb5a6a237491211d9c781e3f
+// https://api.openweathermap.org/data/2.5/forecast?q=Mumbai&appid=09cfb2b80383bb47670ff061a60c501f
 
 function Lands() {
   const host = "http://localhost:5000"
   const [lands, setlands] = useState(null);
   const [crop, setCrop] = useState("");
   const [id, setID] = useState(null);
+  const [deleteID, setDeleteID] = useState(null);
+  const apiKey = "09cfb2b80383bb47670ff061a60c501f";
+  const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
     getLands();
@@ -92,9 +100,20 @@ function Lands() {
   const ref = useRef(null);
   const CropRef = useRef(null);
   const editRef = useRef(null);
+  const deleteRef = useRef(null);
+  const weatherRef = useRef(null);
 
-  const handleDelete = async (land) => {
-    const response = await fetch(`${host}/api/land/deleteland/${land._id}`, {
+  const fetchWeatherData = async (citys, setWeatherData) => {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${citys}&appid=${apiKey}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    // console.log(data);
+    setWeatherData(data);
+    // console.log("Printing weather data: ", data);
+  };
+
+  const handleDelete = async () => {
+    const response = await fetch(`${host}/api/land/deleteland/${deleteID}`, {
       method: "DELETE",
       headers: {
         "Content-type": "applications/json",
@@ -132,7 +151,6 @@ function Lands() {
       }
     });
     const json = await response.json();
-    console.log(json);
     setlands(json);
   }
 
@@ -146,11 +164,22 @@ function Lands() {
     editRef.current.click();
   }
 
+  const handleDeleteClick = (currentLand) => {
+    setDeleteID(currentLand._id);
+    deleteRef.current.click();
+  }
+
+  const handleWeatherClick = async (currentLand) => {
+    await fetchWeatherData(currentLand.city, setWeatherData);
+    weatherRef.current.click();
+  }
+
   return (
     <div>
+      {/* Crop recommendation modal  */}
       <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" ref={CropRef}>
       </button>
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade modal-xl" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -175,15 +204,36 @@ function Lands() {
         </div>
       </div>
 
+      {/* Delete modal  */}
+      <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#deleteModal" ref={deleteRef}>
+      </button>
+      <div className="modal fade" id="deleteModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete the land?</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              If you click the delete button, all the data for the respective land will be lost.
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-danger" onClick={() => handleDelete(deleteID)}>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <h2>
         Your Farm lands
-         <i id="add-land" class="fa-solid fa-square-plus" style={{ cursor: "pointer" }} onClick={() => handleAddLandClick()}></i>
+        <i id="add-land" className="fa-solid fa-square-plus" style={{ cursor: "pointer" }} onClick={() => handleAddLandClick()}></i>
       </h2>
 
+      {/* Add Land modal  */}
       <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal1" ref={ref}>
       </button>
-
       <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -198,9 +248,9 @@ function Lands() {
         </div>
       </div>
 
+      {/* Edit Land modal */}
       <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal2" ref={editRef}>
       </button>
-
       <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -215,18 +265,37 @@ function Lands() {
         </div>
       </div>
 
+      {/* Weather Modal */}
+      <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#weatherModal" ref={weatherRef}>
+      </button>
+      <div className="modal fade modal-xl" id="weatherModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Live weather</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body overflow-auto">
+              <WeatherModal weatherData={weatherData}/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <table className="table table-striped">
         <thead>
           <tr>
-            <th scope="col">City</th>
-            <th scope="col">Nitrogen</th>
-            <th scope="col">Phosphorous</th>
-            <th scope="col">Potassium</th>
-            <th scope="col">Avg. Temperature</th>
-            <th scope="col">Avg. Humidity</th>
+            <th scope="col">City<i className="fa-solid fa-raindrops"></i></th>
+            <th scope="col">N</th>
+            <th scope="col">P</th>
+            <th scope="col">K</th>
+            <th scope="col">Temperature</th>
+            <th scope="col">Relative Humidity</th>
             <th scope="col">pH</th>
             <th scope="col">Rainfall</th>
             <th scope="col">Recommendation</th>
+            <th scope="col">Weather</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
@@ -235,15 +304,15 @@ function Lands() {
           {lands &&
             lands.map((land) => {
               return (
-                <tr>
+                <tr key={land._id}>
                   <td>{land.city}</td>
                   <td>{land.nitrogen === -1 ? "NA" : land.nitrogen}</td>
                   <td>{land.phosphorous === -1 ? "NA" : land.phosphorous}</td>
                   <td>{land.potassium === -1 ? "NA" : land.potassium}</td>
-                  <td>{land.avg_temperature === -1 ? "NA" : land.avg_temperature}</td>
-                  <td>{land.avg_humidity === -1 ? "NA" : land.avg_humidity}</td>
+                  <td>{land.avg_temperature === -1 ? "NA" : land.avg_temperature + "°C"}</td>
+                  <td>{land.avg_humidity === -1 ? "NA" : land.avg_humidity + "%"}</td>
                   <td>{land.ph === -1 ? "NA" : land.ph}</td>
-                  <td>{land.rainfall === -1 ? "NA" : land.rainfall}</td>
+                  <td>{land.rainfall === -1 ? "NA" : land.rainfall + "mm"}</td>
                   <td>
                     <button
                       className="btn btn-success"
@@ -258,14 +327,15 @@ function Lands() {
                         land.rainfall === -1
                       }
                     >
-                      Get Crop recommendation <i class="fa-solid fa-plant-wilt"></i>
+                      Get Crop recommendation <i className="fa-solid fa-plant-wilt"></i>
                     </button>
                   </td>
+                  <td><button className='btn btn-primary' onClick={() => handleWeatherClick(land)}>Get Live Weather<i className="fa-solid fa-cloud"></i></button></td>
                   <td>
                     <i className="fa-solid fa-pen text-primary" onClick={() => handleEditClick(land)}></i>
                   </td>
                   <td>
-                    <i className="fa-solid fa-trash text-danger" onClick={() => handleDelete(land)}></i>
+                    <i className="fa-solid fa-trash text-danger" onClick={() => handleDeleteClick(land)}></i>
                   </td>
                 </tr>
               );
@@ -277,5 +347,4 @@ function Lands() {
   )
 }
 
-export default Lands
-
+export default Lands;

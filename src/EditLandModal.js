@@ -29,35 +29,35 @@ function EditLandModal(props) {
             <form>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">City</label>
-                    <input type="text" className="form-control" id="city" name="city" aria-describedby="emailHelp" onChange={onChange} required />
+                    <input type="text" className="form-control" id="city" name="city" aria-describedby="emailHelp" onChange={onChange} required placeholder='City in which this land is located'/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Nitrogen</label>
-                    <input type="number" className="form-control" id="nitrogen" name="nitrogen" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <input type="number" className="form-control" id="nitrogen" name="nitrogen" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Nitrogen content in soil'/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">phosphorous</label>
-                    <input type="number" className="form-control" id="phosphorous" name="phosphorous" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <input type="number" className="form-control" id="phosphorous" name="phosphorous" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Phosphorous content in soil'/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">potassium</label>
-                    <input type="number" className="form-control" id="potassium" name="potassium" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <input type="number" className="form-control" id="potassium" name="potassium" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Potassium content in soil'/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">avg_temperature</label>
-                    <input type="number" className="form-control" id="avg_temperature" name="avg_temperature" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <label htmlFor="exampleInputEmail1" className="form-label">Temperature</label>
+                    <input type="number" className="form-control" id="avg_temperature" name="avg_temperature" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Temperature in °C'/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">avg_humidity</label>
-                    <input type="number" className="form-control" id="avg_humidity" name="avg_humidity" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <label htmlFor="exampleInputEmail1" className="form-label">Relative Humidity</label>
+                    <input type="number" className="form-control" id="avg_humidity" name="avg_humidity" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Relative humidity in %'/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">ph</label>
-                    <input type="number" className="form-control" id="ph" name="ph" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <input type="number" className="form-control" id="ph" name="ph" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ph value of the soil'/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">rainfall</label>
-                    <input type="number" className="form-control" id="rainfall" name="rainfall" aria-describedby="emailHelp" onChange={onChange} step="0.0001" />
+                    <input type="number" className="form-control" id="rainfall" name="rainfall" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='rainfall in mm'/>
                 </div>
                 <button disabled={land.city.length === 0} type="submit" className="btn btn-success" onClick={handleClick}>Edit Land</button>
             </form>

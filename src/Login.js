@@ -38,8 +38,8 @@ function Login(props) {
     }
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <div className='container' style={{ maxWidth: '400px', backgroundColor: '#f3f3f3', padding: '30px', borderRadius: '10px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', }}>
+            <div className='container' style={{ maxWidth: '400px', backgroundColor: 'white', padding: '30px', borderRadius: '10px' }}>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email address</label>
