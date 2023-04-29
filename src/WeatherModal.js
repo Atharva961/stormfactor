@@ -3,7 +3,7 @@ import { LineChart, XAxis, YAxis, CartesianGrid, Tooltip, Line } from 'recharts'
 
 const WeatherModal = ({ weatherData }) => {
     const icons = {
-        "Clear": "fa-solid fa-sun text-warning",
+        "Clear": "fa-solid fa-circle text-warning",
         "Clouds": "fa-solid fa-cloud",
         "Rain": "fa-solid fa-cloud-rain text-primary"
     }

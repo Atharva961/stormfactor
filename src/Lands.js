@@ -96,6 +96,52 @@ function Lands() {
     "coffee": "coffee, कॉफ़ी, कॉफ़ी"
   };
 
+  const cropInfo = {
+    "rice": "\n\nRice is a cereal grain that is grown in many parts of the world. It is a staple food for many cultures and is one of the most widely consumed grains in the world. Rice is typically grown in tropical and subtropical regions, such as South and Southeast Asia, Africa, and Latin America. Rice is usually planted in the spring and harvested in the fall. The best fertilizers for rice are nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Best farming practices for rice include crop rotation, soil conservation, and water management.",
+
+    "maize": "\n\nMaize is a cereal crop that is grown in many parts of the world. It is a warm season crop, and is best grown in areas with long, hot summers. It is usually planted in late spring or early summer and harvested in late summer or early fall. Maize is a heavy feeder and requires plenty of nitrogen, phosphorus, and potassium for optimal growth. It is also susceptible to pests and diseases, so it is important to use the right fertilizers and pesticides to keep the crop healthy. Good farming practices for maize include crop rotation, proper irrigation, and timely weeding.",
+
+    "chickpea": "\n\nChickpea is a cool-season crop that is grown in many parts of the world, including India, Pakistan, Turkey, Ethiopia, Mexico, and the United States. It is typically planted in the spring and harvested in the late summer or early fall. Chickpea is a legume crop and is best grown in well-drained, loamy soils with a pH of 6.0-7.5. It is tolerant of drought and can be grown in areas with low rainfall. To ensure a good yield, it is important to use the right fertilizers and pesticides. Organic fertilizers such as compost and manure are recommended for chickpea production. Additionally, it is important to practice crop rotation and use cover crops to reduce soil erosion and improve soil fertility.",
+
+    "kidneybeans": "\n\nKidney beans are an annual crop that grows best in warm climates with well-drained soil. They are usually planted in the spring after the last frost and harvested in the late summer or early fall. Kidney beans require a lot of nitrogen, so it is important to use a fertilizer that is high in nitrogen. Additionally, it is important to rotate crops and practice crop rotation to prevent soil depletion. To protect the crop from pests, it is important to use natural pest control methods such as companion planting and using beneficial insects.",
+
+    "pigeonpeas": "\n\nPigeonpeas (Cajanus cajan) is a warm-season annual legume crop grown for its edible seeds. It is native to India and is widely grown in tropical and subtropical regions of the world. It is a drought-tolerant crop and can be grown in areas with low rainfall. Pigeonpeas are usually grown in the summer season, from April to October. The best fertilizers for pigeonpeas are nitrogen, phosphorus, and potassium. Pigeonpeas are also susceptible to pests and diseases, so it is important to use appropriate pesticides and fungicides to protect the crop. Good farming practices for pigeonpeas include crop rotation, proper irrigation, and timely weeding.",
+
+    "mothbeans": "\n\nMothbeans are a type of legume that is native to the Mediterranean region. They are a warm-season crop, and are usually planted in the spring. Mothbeans prefer well-drained, sandy soils with a pH of 6.5-7.5. They are drought tolerant and can tolerate some salinity. The best fertilizers for mothbeans are nitrogen-based fertilizers, such as ammonium sulfate or urea. Pesticides should be used sparingly, as mothbeans are relatively pest-resistant. Best farming practices for mothbeans include crop rotation, proper irrigation, and timely harvesting.",
+
+    "mungbean": "\n\nMungbean is an annual legume crop that is grown in tropical and subtropical regions. It is most commonly grown in India, China, and Southeast Asia. It is typically planted in the spring and harvested in the late summer or early fall. The best fertilizers for mungbean are nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for mungbean include crop rotation, proper irrigation, and timely weeding.",
+
+    "blackgram": "\n\nBlackgram (Vigna mungo) is an annual legume crop grown in tropical and subtropical regions of the world. It is mainly grown in India, Bangladesh, Pakistan, Nepal, Myanmar, Thailand, and Vietnam. It is a short-duration crop, usually maturing in about 90-120 days.\n\nBlackgram is best grown in well-drained, loamy soils with a pH of 6.0-7.5. It is a warm-season crop and is usually planted in late spring or early summer.\n\nThe best fertilizers for blackgram are nitrogen, phosphorus, and potassium. Organic fertilizers such as compost, manure, and green manure can also be used. Pesticides such as neem oil, pyrethrum, and spinosad can be used to control pests.\n\nThe best farming practices for blackgram include crop rotation, timely sowing, proper irrigation, and timely weeding. Mulching can also help conserve soil moisture and reduce weed growth.",
+
+    "lentil": "\n\nLentils are an annual legume crop that is grown in temperate and subtropical regions around the world. They are usually planted in the spring and harvested in the late summer or early fall. Lentils prefer well-drained, fertile soils with a pH of 6.0-7.5. They are best grown in areas with full sun and moderate temperatures. To ensure a good crop, it is important to use the right fertilizers and pesticides. Organic fertilizers such as compost, manure, and bone meal are best for lentils. For pest control, use natural methods such as crop rotation, hand-picking, and beneficial insects. Good farming practices such as proper irrigation, timely weeding, and crop rotation can also help to ensure a good crop.",
+
+    "pomegranate": "\n\nPomegranate is a subtropical and tropical fruit crop that is grown in warm climates. It is best suited to areas with hot summers and mild winters, such as the Mediterranean, Middle East, and parts of the United States. It is typically harvested in late summer and early fall. The best fertilizers for pomegranate are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for pomegranate include proper irrigation, pruning, and mulching.",
+
+    "banana": "\n\nBananas are a tropical fruit crop that grows best in warm, humid climates with plenty of rainfall. They are typically grown in tropical and subtropical regions, such as Central and South America, Africa, and Southeast Asia. Bananas are a perennial crop, meaning they can be harvested year-round. The best fertilizers for banana plants are high in nitrogen, potassium, and phosphorus. Pesticides should be used sparingly, as bananas are sensitive to many chemicals. Good farming practices for bananas include proper soil preparation, adequate irrigation, and regular pruning.",
+
+    "mango": "\n\nMango is a tropical fruit tree that is native to South Asia and is widely cultivated in many tropical and subtropical regions. It is a long-lived, evergreen tree that can reach heights of up to 100 feet. Mango trees prefer warm, humid climates and thrive in areas with temperatures between 65 and 100 degrees Fahrenheit. They require full sun and well-drained soil. Mango trees are usually planted in the spring and require regular watering and fertilizing. The best fertilizers for mango trees are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for mango trees include pruning, mulching, and pest control.",
+
+    "grapes": "\n\nGrapes are a type of fruit that is grown in temperate climates around the world. They are typically grown in regions with warm summers and mild winters, such as the Mediterranean, California, and South Africa. Grapes are usually harvested in the late summer or early fall. The best fertilizers for grapes are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for grapes include pruning, training, and trellising the vines, as well as controlling weeds and pests.",
+
+    "watermelon": "\n\nWatermelon is a warm-season crop that grows best in full sun and well-drained soil. It is best planted in the spring after the last frost and harvested in late summer. Watermelons require a lot of water and nutrients, so it is important to fertilize the soil with a balanced fertilizer before planting. To prevent disease and pests, use a fungicide and insecticide. Good farming practices for watermelon include proper spacing of plants, adequate water, and mulching to conserve moisture.",
+
+    "muskmelon": "\n\nMuskmelon is a warm-season crop that is grown in many parts of the world. It is best grown in areas with full sun and well-drained soil. It is usually planted in late spring or early summer and harvested in late summer or early fall. The best fertilizers for muskmelon are those that are high in nitrogen and potassium, such as a 10-10-10 fertilizer. Pesticides should be used sparingly and only when necessary. Good farming practices for muskmelon include proper irrigation, mulching, and crop rotation.",
+
+    "apple": "\n\nApple is a deciduous tree that is grown in temperate climates. It is best suited to grow in areas with cold winters and warm summers. It is best grown in well-drained, slightly acidic soil. Apples need full sun and regular watering. The best fertilizers for apple trees are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for apple trees include pruning, thinning, and mulching.",
+
+    "orange": "\n\nOrange is a citrus fruit that is grown in warm climates, such as in Florida, California, and Texas in the United States. It is typically harvested in the winter months, from November to March. The best fertilizers for oranges are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary, as oranges are sensitive to many chemicals. Good farming practices for oranges include proper irrigation, pruning, and thinning of the fruit. Additionally, it is important to monitor the soil for nutrient deficiencies and to keep the trees healthy.",
+
+    "papaya": "\n\nPapaya is a tropical fruit crop that is grown in warm climates, such as in the Caribbean, Central America, South America, and Southeast Asia. It is typically grown in the summer months, and requires plenty of sunlight and water. Papaya plants are sensitive to cold temperatures, so they should be protected from frost. The best fertilizers for papaya plants are high in nitrogen, phosphorus, and potassium. Commonly used pesticides for papaya include insecticides, fungicides, and herbicides. Good farming practices for papaya include proper soil preparation, adequate irrigation, and regular pruning.",
+
+    "coconut": "\n\nCoconut is a tropical crop that is grown in tropical and subtropical regions around the world. It is a perennial crop that is harvested year-round. The best fertilizers for coconut trees are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Good farming practices for coconut trees include regular pruning, mulching, and irrigation. Additionally, it is important to keep the soil well-drained and free of weeds.",
+
+    "cotton": "\n\nCotton is a warm-season crop that is grown in many parts of the world. It is typically planted in the spring and harvested in the late summer or early fall. Cotton prefers well-drained, sandy loam soils with a pH of 6.0-7.0. It is important to use the right fertilizers and pesticides to ensure a healthy crop. Fertilizers should be applied in the spring and again in the summer. Pesticides should be used to control weeds, insects, and diseases. Best farming practices for cotton include crop rotation, proper irrigation, and timely harvesting.",
+
+    "jute": "\n\nJute is a type of fiber crop that is grown in tropical and subtropical regions of the world. It is mainly grown in India, Bangladesh, China, Thailand, and Myanmar. Jute is a warm-season crop and is usually planted in late spring or early summer. It requires a warm, humid climate and plenty of water for optimal growth. The best fertilizers for jute are nitrogen, phosphorus, and potassium. Pesticides such as carbofuran, endosulfan, and chlorpyrifos can be used to control pests. Good farming practices for jute include crop rotation, proper irrigation, and timely harvesting.",
+
+    "coffee": "\n\nCoffee is a tropical crop that is grown in the equatorial regions of the world, including Central and South America, Africa, and Southeast Asia. It is typically grown in the shade of other trees and requires a warm, humid climate with plenty of rainfall. Coffee is usually harvested in the late summer and early fall. The best fertilizers for coffee plants are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when absolutely necessary. Good farming practices for coffee include pruning, weeding, and mulching to keep the soil moist and fertile."
+  }
+
 
   const ref = useRef(null);
   const CropRef = useRef(null);
@@ -181,26 +227,31 @@ function Lands() {
       </button>
       <div className="modal fade modal-xl" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Recommended Crop</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recommended Crop</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div class="modal-body">
               <p>The recommended crop is: {FruitTranslations[crop]}</p>
             </div>
-            <div className="modal-body row">
-              <div className="col-sm-6">
-                <img className="img-fluid" src={cropImageUrl[crop]} alt={crop} />
+            <div class="modal-body row">
+              <div class="col-sm-6">
+                <img class="img-fluid h-100 w-100" src={cropImageUrl[crop]} alt={crop} />
               </div>
-              <div className="col-sm-6">
-                <img className="img-fluid" src={FruitImageUrl[crop]} alt={crop} />
+              <div class="col-sm-6">
+                <img class="img-fluid h-100 w-100" src={FruitImageUrl[crop]} alt={crop} />
               </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="modal-body">
+              <h3>Here's some information about {crop}</h3>
+              <p>{cropInfo[crop]}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -276,7 +327,7 @@ function Lands() {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body overflow-auto">
-              <WeatherModal weatherData={weatherData}/>
+              <WeatherModal weatherData={weatherData} />
             </div>
           </div>
         </div>
