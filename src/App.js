@@ -9,6 +9,8 @@ import Home from './Home';
 import Signup from './Signup';
 import Navbar from './Navbar';
 import Chatbot from './Chatbot';
+import Crops from './Crops';
+import Schemes from './Schemes';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/signup" element={<Signup/>} />
           <Route exact path="/chatbot" element={<Chatbot/>}/>
+          <Route exact path="/crops" element={<Crops/>}/>
+          <Route exact path="/schemes" element={<Schemes/>}/>
         </Routes>
       </Router>
     </div>

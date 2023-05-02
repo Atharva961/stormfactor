@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 function Chatbot() {
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
-
+ 
     const chatContainerRef = useRef(null);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function Chatbot() {
         <div className="container">
             <h1 className="text-center mb-4 text-success">FarmerBot</h1>
             <form className="mb-4" onSubmit={handleSubmit}>
-                <textarea className="form-control mb-2" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                <textarea className="form-control mb-2" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type your message here"></textarea>
                 <button className="btn btn-success" type="submit">Submit</button>
             </form>
 

@@ -31,7 +31,7 @@ app.post('/information', async (req, res) => {
     const { icrop } = req.body;
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `You are a console terminal. Message will contain a name of a crop, answer should contain the essential information about crop(places where it grows, season in which it grows, best fertilizers/pesticides, best farming practices).
+        prompt: `You are a console terminal. Message will contain a name of a government scheme, answer should contain the essential information.
         User: ${icrop}`,
         max_tokens: 500,
         temperature: 0,

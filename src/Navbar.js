@@ -56,16 +56,16 @@ const Navbar = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link className={`nav-link ${location.pathname === "/chatbot" ? "active" : ""}`} aria-current="page" to="/chatbot">
-                                        <i className="fa-solid fa-comment"></i>Chatbot
+                                        <i className="fa-solid fa-comment"></i>ChatGPT
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${location.pathname === "/schemes" ? "active" : ""}`} aria-current="page" to="/">
+                                    <Link className={`nav-link ${location.pathname === "/schemes" ? "active" : ""}`} aria-current="page" to="/schemes">
                                         <i className="fa-sharp fa-solid fa-indian-rupee-sign"></i>Government Schemes
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link ${location.pathname === "/crops" ? "active" : ""}`} aria-current="page" to="/">
+                                    <Link className={`nav-link ${location.pathname === "/crops" ? "active" : ""}`} aria-current="page" to="/crops">
                                         <i className="fa-solid fa-plant-wilt"></i>Popular Crops
                                     </Link>
                                 </li>

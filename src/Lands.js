@@ -72,29 +72,30 @@ function Lands() {
   };
 
   const FruitTranslations = {
-    "rice": "rice, चावल, तांदूळ",
-    "maize": "maize, मक्का, मका",
-    "chickpea": "chickpea, चना, हरभरा",
-    "kidneybeans": "kidney beans, राजमा, राजमा",
-    "pigeonpeas": "pigeon peas, अरहर दाल, तुअर दाळ",
-    "mothbeans": "moth beans, मोठ बीन्स, मटकी",
-    "mungbean": "mung bean, मूंग दाल, मुग",
-    "blackgram": "black gram, काला चना, उडद दाल",
-    "lentil": "lentil, मसूर दाल, मसूर",
-    "pomegranate": "pomegranate, अनार, डाळिंब",
-    "banana": "banana, केला, कच्च केळ",
-    "mango": "mango, आम, आंबा",
-    "grapes": "grapes, अंगूर, द्राक्ष",
-    "watermelon": "watermelon, तरबूज, कलिंगड",
-    "muskmelon": "muskmelon, खरबूजा, कवठे",
-    "apple": "apple, सेब, सफरचंद",
-    "orange": "orange, संतरा, संत्रा",
-    "papaya": "papaya, पपीता, पपई",
-    "coconut": "coconut, नारियल, नारळ",
-    "cotton": "cotton, कपास, कापूस",
-    "jute": "jute, जूट, जुट",
-    "coffee": "coffee, कॉफ़ी, कॉफ़ी"
-  };
+    "rice": "Rice, चावल, तांदूळ, ચોખો, ধান, அரிசி, బియ్యం, ಅಕ್ಕಿ, പച്ചരി",
+    "maize": "Maize, मक्का, मका, મકાઈ, ভুট্টা, மக்காச்சோளம், మక్కజొన్న, ಮಕ್ಕ",
+    "chickpea": "Chickpea, चना, हरभरा, ચણા, চনা, கொண்டைக் கடலை, శనగలు, ಕಡಲೆ",
+    "kidneybeans": "Kidney beans, राजमा, राजमा, રાજમા, রাজমা, தட்டை, రాజ్ మా అవరెకడు, ರಾಜಮಾ",
+    "pigeonpeas": "Pigeon peas, अरहर दाल, तुअर दाळ, તુવેર, তুয়ার ডাল, துவரை, తూర దాల్, ತೂರ್ ದಾಲ್",
+    "mothbeans": "Moth beans, मोठ बीन्स, मटकी, મોઠ, মঠ ডাল, மோதாம், మొథర్ దాల్, ಹೆಸರು ಕಾಳು",
+    "mungbean": "Mung bean, मूंग दाल, मुग, મગ, মুগ ডাল, பாசிப்பயறு, పెసర పప్పు, ಹೆಸರು ಕಾಳು",
+    "blackgram": "Black gram, काला चना, उडद दाल, ચોળા, কালো চলকপি ডাল, உளுந்து, మినుగుపప్పు, ಉದ್ದಿನ ಬೇಳೆ",
+    "lentil": "Lentil, मसूर दाल, मसूर, মসুর ডাল, பருப்பு, పప్పు",
+    "pomegranate": "Pomegranate, अनार, डाळिंब, ডালিম, மாதுளம், దానిమ్మ",
+    "banana": "Banana, केला, कच्च केळ, কলা, வாழைப்பழம், ఆరటి",
+    "mango": "Mango, आम, आंबा, আম, மாம்பழம், మామిడి",
+    "grapes": "Grapes, अंगूर, द्राक्ष, আঙ্গুর, திராட்சை, ద్రాక్ష",
+    "watermelon": "Watermelon, तरबूज, कलिंगड, তরমুজ, தர்பூசணி, పుచ్చకాయ",
+    "muskmelon": "Muskmelon, खरबूजा, कवठे, খরমুজ, முலாம்பழம், ఖర్బూజ",
+    "apple": "Apple, सेब, सफरचंद, আপেল, ஆப்பிள், ఆపిల్",
+    "orange": "Orange, संतरा, संत्रा, কমলা, ஆரஞ்சு, నారింజ",
+    "papaya": "Papaya, पपीता, पपई, পেঁপে, பப்பாளி, బొప్పాయ",
+    "coconut": "Coconut, नारियल, नारळ, নারিকেল, தேங்காய், కొబ్బరినెల్లు",
+    "cotton": "Cotton, कपास, कापूस, সুত, பருத்தி, పంచ్తాన్తులు",
+    "jute": "Jute, जूट, जुट, જુટી, জুট, சணல், జూట్, ಜೂಟ್, ജൂട്ട്",
+    "coffee": "Coffee, कॉफ़ी, कॉफ़ी, કોફી, কফি, காபி, కాఫీ, ಕಾಫಿ, കോഫി"
+};
+
 
   const cropInfo = {
     "rice": "\n\nRice is a cereal grain that is grown in many parts of the world. It is a staple food for many cultures and is one of the most widely consumed grains in the world. Rice is typically grown in tropical and subtropical regions, such as South and Southeast Asia, Africa, and Latin America. Rice is usually planted in the spring and harvested in the fall. The best fertilizers for rice are nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Best farming practices for rice include crop rotation, soil conservation, and water management.",
@@ -233,7 +234,7 @@ function Lands() {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>The recommended crop is: {FruitTranslations[crop]}</p>
+              <h3>{FruitTranslations[crop]}</h3>
             </div>
             <div class="modal-body row">
               <div class="col-sm-6">
