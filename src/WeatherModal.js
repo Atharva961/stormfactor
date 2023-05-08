@@ -5,7 +5,8 @@ const WeatherModal = ({ weatherData }) => {
     const icons = {
         "Clear": "fa-solid fa-circle text-warning",
         "Clouds": "fa-solid fa-cloud",
-        "Rain": "fa-solid fa-cloud-rain text-primary"
+        "Rain": "fa-solid fa-cloud-rain text-primary",
+        "Snow": "fa-solid fa-snowflake text-info"
     }
 
     function kelvinToCelsius(kelvin) {

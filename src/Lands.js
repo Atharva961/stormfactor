@@ -16,6 +16,7 @@ function Lands() {
   const [deleteID, setDeleteID] = useState(null);
   const apiKey = "09cfb2b80383bb47670ff061a60c501f";
   const [weatherData, setWeatherData] = useState(null);
+  const [editLand, setEditLand] = useState(null);
 
   useEffect(() => {
     getLands();
@@ -72,6 +73,7 @@ function Lands() {
   };
 
   const FruitTranslations = {
+    "none": "Nothing grows in this environment",
     "rice": "Rice, चावल, तांदूळ, ચોખો, ধান, அரிசி, బియ్యం, ಅಕ್ಕಿ, പച്ചരി",
     "maize": "Maize, मक्का, मका, મકાઈ, ভুট্টা, மக்காச்சோளம், మక్కజొన్న, ಮಕ್ಕ",
     "chickpea": "Chickpea, चना, हरभरा, ચણા, চনা, கொண்டைக் கடலை, శనగలు, ಕಡಲೆ",
@@ -94,10 +96,10 @@ function Lands() {
     "cotton": "Cotton, कपास, कापूस, সুত, பருத்தி, పంచ్తాన్తులు",
     "jute": "Jute, जूट, जुट, જુટી, জুট, சணல், జూట్, ಜೂಟ್, ജൂട്ട്",
     "coffee": "Coffee, कॉफ़ी, कॉफ़ी, કોફી, কফি, காபி, కాఫీ, ಕಾಫಿ, കോഫി"
-};
-
+  };
 
   const cropInfo = {
+    "none": "Nothing grows in this environment",
     "rice": "\n\nRice is a cereal grain that is grown in many parts of the world. It is a staple food for many cultures and is one of the most widely consumed grains in the world. Rice is typically grown in tropical and subtropical regions, such as South and Southeast Asia, Africa, and Latin America. Rice is usually planted in the spring and harvested in the fall. The best fertilizers for rice are nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when necessary. Best farming practices for rice include crop rotation, soil conservation, and water management.",
 
     "maize": "\n\nMaize is a cereal crop that is grown in many parts of the world. It is a warm season crop, and is best grown in areas with long, hot summers. It is usually planted in late spring or early summer and harvested in late summer or early fall. Maize is a heavy feeder and requires plenty of nitrogen, phosphorus, and potassium for optimal growth. It is also susceptible to pests and diseases, so it is important to use the right fertilizers and pesticides to keep the crop healthy. Good farming practices for maize include crop rotation, proper irrigation, and timely weeding.",
@@ -142,7 +144,6 @@ function Lands() {
 
     "coffee": "\n\nCoffee is a tropical crop that is grown in the equatorial regions of the world, including Central and South America, Africa, and Southeast Asia. It is typically grown in the shade of other trees and requires a warm, humid climate with plenty of rainfall. Coffee is usually harvested in the late summer and early fall. The best fertilizers for coffee plants are those that are high in nitrogen, phosphorus, and potassium. Pesticides should be used sparingly and only when absolutely necessary. Good farming practices for coffee include pruning, weeding, and mulching to keep the soil moist and fertile."
   }
-
 
   const ref = useRef(null);
   const CropRef = useRef(null);
@@ -207,6 +208,7 @@ function Lands() {
   };
 
   const handleEditClick = (currentLand) => {
+    setEditLand(currentLand);
     setID(currentLand._id);
     editRef.current.click();
   }
@@ -236,18 +238,20 @@ function Lands() {
             <div class="modal-body">
               <h3>{FruitTranslations[crop]}</h3>
             </div>
-            <div class="modal-body row">
-              <div class="col-sm-6">
-                <img class="img-fluid h-100 w-100" src={cropImageUrl[crop]} alt={crop} />
-              </div>
-              <div class="col-sm-6">
-                <img class="img-fluid h-100 w-100" src={FruitImageUrl[crop]} alt={crop} />
-              </div>
-            </div>
-            <div class="modal-body">
-              <h3>Here's some information about {crop}</h3>
-              <p>{cropInfo[crop]}</p>
-            </div>
+            {crop !== "none" && (
+              <div>
+                <div class="modal-body row">
+                  <div class="col-sm-6">
+                    <img class="img-fluid h-100 w-100" src={cropImageUrl[crop]} alt={crop} />
+                  </div>
+                  <div class="col-sm-6">
+                    <img class="img-fluid h-100 w-100" src={FruitImageUrl[crop]} alt={crop} />
+                  </div>
+                </div>
+                <div class="modal-body">
+                  <h3>Here's some information about {crop}</h3>
+                  <p>{cropInfo[crop]}</p>
+                </div></div>)}
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -311,7 +315,7 @@ function Lands() {
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <EditLandModal id={id} />
+              <EditLandModal land={editLand} />
             </div>
           </div>
         </div>

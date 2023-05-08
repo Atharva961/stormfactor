@@ -35,6 +35,21 @@ def predict_crop(data:Feature):
     ph = data['ph']
     rainfall = data['rainfall']
 
+    if nitrogen < 0 or nitrogen > 140:
+        return {"crop": "none"}
+    if phosphorous < 5 or phosphorous > 145:
+        return {"crop": "none"}
+    if potassium < 5 or potassium > 205:
+        return {"crop": "none"}
+    if avg_temperature < 8.83 or avg_temperature > 43.7:
+        return {"crop": "none"}
+    if avg_humidity < 14.3 or avg_humidity > 100:
+        return {"crop": "none"}
+    if ph < 3.5 or ph > 9.94:
+        return {"crop": "none"}
+    if rainfall < 20.2 or rainfall > 299:
+        return {"crop": "none"}
+
     input_data = np.array([nitrogen, phosphorous, potassium, avg_temperature, avg_humidity, ph, rainfall])
     predictions = model.predict(input_data.reshape(1, -1))
     le = LabelEncoder()

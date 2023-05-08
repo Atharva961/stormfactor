@@ -4,10 +4,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express();
-
+ 
 const configuration = new Configuration({
     organization: "org-wB5BWYoiUqFenbWao9B797Jk",
-    apiKey: "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",
+    apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -31,9 +31,9 @@ app.post('/information', async (req, res) => {
     const { icrop } = req.body;
     const response = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `You are a console terminal. Message will contain a name of a government scheme, answer should contain the essential information.
+        prompt: `You are a console terminal. Message will contain a name of a crop, response should be the explaination about the farming practices of that crop in detail.
         User: ${icrop}`,
-        max_tokens: 500,
+        max_tokens: 1000,
         temperature: 0,
     });
 

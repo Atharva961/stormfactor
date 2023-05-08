@@ -1,7 +1,7 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function EditLandModal(props) {
-    const [land, setLand] = useState({ city: "", nitrogen: -1, phosphorous: -1, potassium: -1, avg_temperature: -1, avg_humidity: -1, ph: -1, rainfall: -1 });
+    const [land, setLand] = useState();
 
     const onChange = (e) => {
         setLand({ ...land, [e.target.name]: e.target.value })
@@ -9,7 +9,7 @@ function EditLandModal(props) {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/land/updateland/${props.id}`, {
+        const response = await fetch(`http://localhost:5000/api/land/updateland/${land._id}`, {
             method: "PUT",
             headers: {
                 "Accept": "*/*",
@@ -22,45 +22,52 @@ function EditLandModal(props) {
 
         const json = await response.json()
         console.log(json);
+        setLand(null);
     }
+ 
+    useEffect(() => {
+        console.log(props.land);
+        setLand(props.land);
+    }, [props.land]); 
+
 
     return (
         <div>
-            <form>
+            {land && (<form>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">City</label>
-                    <input type="text" className="form-control" id="city" name="city" aria-describedby="emailHelp" onChange={onChange} required placeholder='City in which this land is located'/>
+                    <input type="text" className="form-control" id="city" name="city" aria-describedby="emailHelp" onChange={onChange} required placeholder='City in which this land is located' value={land.city} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Nitrogen</label>
-                    <input type="number" className="form-control" id="nitrogen" name="nitrogen" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Nitrogen content in soil'/>
+                    <input type="number" className="form-control" id="nitrogen" name="nitrogen" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Nitrogen content in soil' value={land.nitrogen}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">phosphorous</label>
-                    <input type="number" className="form-control" id="phosphorous" name="phosphorous" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Phosphorous content in soil'/>
+                    <input type="number" className="form-control" id="phosphorous" name="phosphorous" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Phosphorous content in soil' value={land.phosphorous}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">potassium</label>
-                    <input type="number" className="form-control" id="potassium" name="potassium" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Potassium content in soil'/>
+                    <input type="number" className="form-control" id="potassium" name="potassium" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ratio of Potassium content in soil' value={land.potassium}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Temperature</label>
-                    <input type="number" className="form-control" id="avg_temperature" name="avg_temperature" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Temperature in °C'/>
+                    <input type="number" className="form-control" id="avg_temperature" name="avg_temperature" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Temperature in °C' value={land.avg_temperature}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Relative Humidity</label>
-                    <input type="number" className="form-control" id="avg_humidity" name="avg_humidity" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Relative humidity in %'/>
+                    <input type="number" className="form-control" id="avg_humidity" name="avg_humidity" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='Relative humidity in %' value={land.avg_humidity}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">ph</label>
-                    <input type="number" className="form-control" id="ph" name="ph" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ph value of the soil'/>
+                    <input type="number" className="form-control" id="ph" name="ph" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='ph value of the soil' value={land.ph}/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">rainfall</label>
-                    <input type="number" className="form-control" id="rainfall" name="rainfall" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='rainfall in mm'/>
+                    <input type="number" className="form-control" id="rainfall" name="rainfall" aria-describedby="emailHelp" onChange={onChange} step="0.0001" placeholder='rainfall in mm' value={land.rainfall}/>
                 </div>
                 <button disabled={land.city.length === 0} type="submit" className="btn btn-success" onClick={handleClick}>Edit Land</button>
-            </form>
+            </form>)}
         </div>
     )
 }
